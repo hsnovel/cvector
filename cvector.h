@@ -48,7 +48,7 @@ int vector_push(vector *vector, void *data)
 		vector->cap = vector->cap * 2;
 		if (tmp == NULL)
 			return 0;
-		memcpy(tmp, vector->data, vector->cap);
+		memcpy(tmp, vector->data, vector->index * vector->itemsize);
 		vector->data = tmp;
 	}
 	memcpy(vector->data + (vector->index * vector->itemsize), data, vector->itemsize);
